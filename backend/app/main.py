@@ -12,6 +12,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://chatbot-frontend-4bii.onrender.com",
+        "https://chatbot-render-frontend-iblfv5vag-w3-ed71.vercel.app/",
         "https://your-frontend.vercel.app",
         "http://localhost:3000",
         "http://127.0.0.1:5500",
