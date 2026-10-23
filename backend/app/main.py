@@ -18,8 +18,16 @@ app.add_middleware(
         "http://127.0.0.1:5500",
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["https://chatbot-frontend-4bii.onrender.com",
+        "https://chatbot-render-frontend-iblfv5vag-w3-ed71.vercel.app/",
+        "https://your-frontend.vercel.app",
+        "http://localhost:3000",
+        "http://127.0.0.1:5500",],
+    allow_headers=["https://chatbot-frontend-4bii.onrender.com",
+        "https://chatbot-render-frontend-iblfv5vag-w3-ed71.vercel.app/",
+        "https://your-frontend.vercel.app",
+        "http://localhost:3000",
+        "http://127.0.0.1:5500",],
 )
 
 app.include_router(chat_router, prefix="/api")
