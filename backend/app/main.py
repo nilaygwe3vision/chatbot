@@ -4,14 +4,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes.chat import router as chat_router
 from app.core.config import settings
 
-app = FastAPI(title="Plugin Chatbot API", version="1.0.0")
 
-raw_origins = [item.strip() for item in settings.frontend_origins.split(",") if item.strip()]
-origins = ["*"] if ("*" in raw_origins or not raw_origins) else raw_origins
+
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "https://chatbot-frontend-4bii.onrender.com",
+        "https://your-frontend.vercel.app",
+        "http://localhost:3000",
+        "http://127.0.0.1:5500",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
