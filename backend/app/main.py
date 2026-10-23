@@ -9,7 +9,10 @@ app = FastAPI(title="Plugin Chatbot API", version="1.0.0")
 origins = [item.strip() for item in settings.frontend_origins.split(",") if item.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins or ["http://localhost:5173"],
+    allow_origins=[
+        "https://chatbot-frontend-4bii.onrender.com",
+        "https://chatbot-frontend-4bii.onrender.com/",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
