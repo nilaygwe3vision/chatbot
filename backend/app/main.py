@@ -6,15 +6,12 @@ from app.core.config import settings
 
 app = FastAPI(title="Plugin Chatbot API", version="1.0.0")
 
-origins = [item.strip() for item in settings.frontend_origins.split(",") if item.strip()]
+raw_origins = [item.strip() for item in settings.frontend_origins.split(",") if item.strip()]
+origins = ["*"] if ("*" in raw_origins or not raw_origins) else raw_origins
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://chatbot-frontend-4bii.onrender.com",
-        "https://chatbot-frontend-4bii.onrender.com/",
-        "https://chatbot-render-frontend.vercel.app/",
-        "https://chatbot-render-frontend.vercel.app/",
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
