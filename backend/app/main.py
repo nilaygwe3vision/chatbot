@@ -12,6 +12,7 @@ app.add_middleware(
     allow_origins=[
         "https://chatbot-frontend-4bii.onrender.com",
         "https://chatbot-frontend-4bii.onrender.com/",
+        "https://chatbot-render-frontend.vercel.app/",
     ],
     allow_credentials=True,
     allow_methods=["*"],
